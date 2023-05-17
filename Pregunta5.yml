@@ -1,0 +1,14 @@
+---
+- name: Enable the W3Svc service in the Firewall
+  hosts: all
+   gather_facts: false
+  tasks:
+    - name: Open port for site on the firewall
+      win_firewall_rule:
+        name: Regla
+        enable: yes
+        state: present
+        localport: 8080
+        action: Allow
+        direction: In
+        protocol: Tcp

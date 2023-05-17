@@ -1,0 +1,10 @@
+- name: Cambiar la primera línea del archivo
+  hosts: all
+
+  tasks:
+    - name: Modificar la primera línea del archivo
+      win_lineinfile:
+        path: C:\tmp\reto1\reto1_content
+        line: "ANSIBLE CON WINDOWS"
+        regexp: "^(.*)"
+        backrefs: yes

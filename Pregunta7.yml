@@ -1,0 +1,10 @@
+---
+- name: Create a file in windows
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create file in /tmp/reto1/reto1_content
+      win_file:
+        path: C:\tmp\reto1\reto1_content
+        state: touch

@@ -1,0 +1,9 @@
+---
+- name: Print in the file reto1_content the windows version of the server
+  hosts: all
+
+  tasks:
+    - name: Print in file windows version
+      win_copy:
+        content: "This is the hostname: {{ ansible_hostname }}"
+        dest: C:\tmp\reto1\reto1_content

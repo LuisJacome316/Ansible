@@ -1,0 +1,25 @@
+---
+- name: Firewall and W3Svc services are installed and active
+  hosts: all
+
+  tasks:
+    - name: install iis
+      win_feature:
+        name: Web-Server
+        state: present
+
+    - name: start iis service
+      win_service:
+        name: W3Svc
+        state: started
+
+    - name: Intsall firewall
+      win_feature:
+        name: Windows-Firewall-Feature
+        state: present
+
+    - name: Asegurar que el servicio Firewall de Windows esté activo
+      win_service:
+        name: MpsSvc
+        start_mode: auto
+        state: started

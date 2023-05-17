@@ -1,0 +1,9 @@
+---
+- name: Get the hostname of the Windows machine
+  hosts: all
+
+
+  tasks:
+    - name: Show hostname
+      debug:
+        msg: "This is the hostname: {{ ansible_hostname }}"

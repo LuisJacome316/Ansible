@@ -1,0 +1,17 @@
+---
+- name: Tomar backup y agregar contenido al archivo
+  hosts: all
+
+  tasks:
+    - name: Tomar backup del archivo
+      win_copy:
+        src: C:\tmp\reto1\reto1_content
+        dest: C:\tmp\reto1\reto1_content_back
+        remote_src: yes
+
+    - name: Agregar contenido al archivo
+      win_lineinfile:
+        path: C:\tmp\reto1\reto1_content
+        line: "ESTA ES UNA PRUEBA"
+        create: yes
+        insertafter: EOF

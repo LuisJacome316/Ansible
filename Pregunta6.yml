@@ -1,0 +1,10 @@
+---
+- name: Create a directory in windows
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create directory /tmp/reto1
+      win_file:
+        path: C:\tmp\reto1
+        state: directory
